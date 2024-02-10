@@ -24,7 +24,11 @@ export default function Login() {
   return (
     <div className='lg:justify-center lg:flex'>
       <ParticleBg />
-      <div className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-24 rounded-md lg:w-1/2 px-4 w-100'>
+      <div data-aos="fade-bottom"
+        data-aos-offset="100"
+        data-aos-delay="80"
+        data-aos-duration="1000"
+        className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-24 rounded-md lg:w-1/2 px-4 w-100'>
         <div className='p-2 rounded-lg shd'>
           <h1 className='text-slate-700'>Welcome To Zmax</h1>
           <p className='text-slate-600'>We have all you want</p>
@@ -150,7 +154,7 @@ export default function Login() {
                     <Link to={"/ForgetPass"} className='text-black text-slate-600 font-bold'>Forget pasword?</Link>
                   </div>
                 </div>
-                <button  type="submit" disabled={isSubmitting} className='btn w-full font-bold mt-4 text-slate-800 bg-blue-300 p-2 mb-4 cursor-pointer'>Login</button>
+                <button type="submit" disabled={isSubmitting} className='btn w-full font-bold mt-4 text-slate-800 bg-slate-700 p-2 mb-4 cursor-pointer'>Login</button>
                 <p className='text-slate-700'>if you are new here then <Link to={"/SignUp"} className='me-2 text-slate-600 font-bold'>Sign Up</Link></p>
               </form>
             )}

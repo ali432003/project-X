@@ -153,7 +153,7 @@ function NavList() {
 export function NavbarWithMegaMenu() {
   const [openNav, setOpenNav] = React.useState(false);
   const nav = useNavigate();
-  let LoginNav = ()=>{
+  let LoginNav = () => {
     nav('/Login')
   }
 
@@ -165,7 +165,11 @@ export function NavbarWithMegaMenu() {
   }, []);
 
   return (
-    <Navbar className="sticky  top-0 mx-auto w-full px-4 py-2" fullWidth >
+    <Navbar data-aos="fade-down"
+      data-aos-offset="100"
+      data-aos-delay="60"
+      data-aos-duration="1000" 
+      className="sticky z-10 top-0 mx-auto w-full px-4 py-2" fullWidth >
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           as="a"

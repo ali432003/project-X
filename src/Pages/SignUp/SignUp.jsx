@@ -21,18 +21,22 @@ export default function SignUp() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-  
+
 
   return (
     <div className='lg:justify-center lg:flex'>
       <ParticleBg />
-      <div className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-0 rounded-md lg:w-1/2 px-4 w-100'>
+      <div data-aos="fade-bottom"
+        data-aos-offset="100"
+        data-aos-delay="80"
+        data-aos-duration="1000"
+        className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-0 rounded-md lg:w-1/2 px-4 w-100'>
         <div className='p-2 rounded-lg shd'>
           <h1 className='text-slate-700'>Create Your account</h1>
           <p className='text-slate-600'>Begin Your Journey with Zmax</p>
 
           <Formik
-            initialValues={{ email: '', fname: '',lname:'',password:'' }}
+            initialValues={{ email: '', fname: '', lname: '', password: '' }}
             validate={(values) => {
               const errors = {};
               if (!values.email) {
@@ -84,7 +88,7 @@ export default function SignUp() {
                 />
 
                 <TextField
-                  
+
                   sx={{ marginY: 2 }}
                   id='filled-basic'
                   label='Enter your Last Name'
