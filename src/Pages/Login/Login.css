@@ -1,0 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans&display=swap');
+.shd{
+    box-shadow: 4px 4px 20px 16px grey;
+    background: #f7faf9;    
+    backdrop-filter: blur(10px);    
+}
+.th{
+    font-family: 'Pixelify Sans', cursive;
+}
+
