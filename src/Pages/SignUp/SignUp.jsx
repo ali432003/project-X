@@ -9,6 +9,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
 // import { DatePicker } from '@mui/lab/DatePicker';
 // import  LocalizationProvider from '@mui/lab/LocalizationProvider' // Import LocalizationProvider
 // import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -22,6 +23,7 @@ export default function SignUp() {
     event.preventDefault();
   };
 
+  AOS.init();
 
   return (
     <div className='lg:justify-center lg:flex'>
@@ -29,8 +31,8 @@ export default function SignUp() {
       <div data-aos="fade-bottom"
         data-aos-offset="100"
         data-aos-delay="80"
-        data-aos-duration="1000"
-        className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-0 rounded-md lg:w-1/2 px-4 w-100'>
+        data-aos-duration="3000"
+        className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-24 rounded-md lg:w-1/2 px-4 w-100'>
         <div className='p-2 rounded-lg shd'>
           <h1 className='text-slate-700'>Create Your account</h1>
           <p className='text-slate-600'>Begin Your Journey with Zmax</p>
@@ -143,9 +145,9 @@ export default function SignUp() {
                           edge="end"
                         >
                           {showPassword ? (
-                            <div className='absolute'><img src="src/assets/hidden.png" style={{ filter: "brightness(300%)" }} alt="Hide Password" /></div>
+                            <div className='absolute'><img src="/assets/hidden.png" style={{ filter: "brightness(300%)" }} alt="Hide Password" /></div>
                           ) : (
-                            <div className='absolute'><img src="src/assets/eye.png" alt="Show Password" /></div>
+                            <div className='absolute'><img src="/assets/eye.png" alt="Show Password" /></div>
                           )}
                         </IconButton>
                       </InputAdornment>
@@ -161,7 +163,7 @@ export default function SignUp() {
             )}
           </Formik>
           <div className='mt-4 mb-2'>
-            <p>Already have an account <Link to={"/Login"} className='me-2 text-slate-600 font-bold'>Login</Link></p>
+            <>Already have an account <Link to={"/Login"} className='me-2 text-slate-600 font-bold'>Login</Link></>
           </div>
         </div>
       </div>

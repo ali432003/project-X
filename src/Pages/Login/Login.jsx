@@ -10,24 +10,23 @@ import InputAdornment from '@mui/material/InputAdornment';
 import FormHelperText from '@mui/material/FormHelperText';
 import FormControl from '@mui/material/FormControl';
 import { useNavigate, Link } from 'react-router-dom';
+import AOS from 'aos';
 
 
 export default function Login() {
   const [showPassword, setShowPassword] = useState(false);
-
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
+  AOS.init();
   return (
     <div className='lg:justify-center lg:flex'>
       <ParticleBg />
       <div data-aos="fade-bottom"
         data-aos-offset="100"
         data-aos-delay="80"
-        data-aos-duration="1000"
+        data-aos-duration="3000"
         className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-24 rounded-md lg:w-1/2 px-4 w-100'>
         <div className='p-2 rounded-lg shd'>
           <h1 className='text-slate-700'>Welcome To Zmax</h1>
@@ -131,9 +130,9 @@ export default function Login() {
                           edge="end"
                         >
                           {showPassword ? (
-                            <div className='absolute'><img src="src/assets/hidden.png" style={{ filter: "brightness(300%)" }} alt="Hide Password" /></div>
+                            <div className='absolute'><img src="/assets/hidden.png" style={{ filter: "brightness(300%)" }} alt="Hide Password" /></div>
                           ) : (
-                            <div className='absolute'><img src="src/assets/eye.png" alt="Show Password" /></div>
+                            <div className='absolute'><img src="/assets/eye.png" alt="Show Password" /></div>
                           )}
                         </IconButton>
                       </InputAdornment>

@@ -2,13 +2,8 @@ import React, { useState } from 'react';
 import ParticleBg from '../../Components/ParticleBg';
 import { TextField } from '@mui/material';
 import { Formik } from 'formik';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import FilledInput from '@mui/material/FilledInput';
-import InputAdornment from '@mui/material/InputAdornment';
-import FormHelperText from '@mui/material/FormHelperText';
-import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
+import AOS from 'aos';
 
 export default function ForgetPass() {
   const [showPassword, setShowPassword] = useState(false);
@@ -17,14 +12,16 @@ export default function ForgetPass() {
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
+  AOS.init();
 
   return (
+
     <div className='lg:justify-center lg:flex'>
       <ParticleBg />
       <div data-aos="fade-bottom"
         data-aos-offset="100"
         data-aos-delay="80"
-        data-aos-duration="1000"
+        data-aos-duration="3000"
         className='lg:p-6 mt-56 md:mt-80 md:p-5 lg:mt-28 rounded-md lg:w-1/2 px-4 w-100'>
         <div className='p-2 rounded-lg shd'>
           <h1 className='text-slate-700'>Reset Your Password</h1>
@@ -73,9 +70,9 @@ export default function ForgetPass() {
             )}
           </Formik>
 
-          <div className='mt-4 mb-2'>
+          <div className='mt-4 mb-2 bg-[#fbfbfb]'>
             <p>
-              Remember your password? <Link to={"/login"} className='me-2 text-slate-600 font-bold'>Login</Link>
+              Remember your password? <Link to={"/login"} className=' me-2 text-slate-600 font-bold'>Login</Link>
             </p>
           </div>
         </div>
