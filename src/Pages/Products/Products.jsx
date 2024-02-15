@@ -24,19 +24,21 @@ const Products = () => {
             fetch('https://fakestoreapi.com/products')
                 .then(res => res.json())
                 .then(json => {
-                    
+
                     setProducts(json);
-                    setLoading(false); 
+                    setLoading(false);
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
-                    setLoading(false); 
+                    setLoading(false);
                 });
-        }, 8000); 
+        }, 8000);
 
-        
+
         return () => clearTimeout(delay);
     }, []);
+
+    // Progress Bar
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
@@ -48,6 +50,13 @@ const Products = () => {
             clearInterval(timer);
         };
     }, []);
+    // For filtration
+    const [selectedCategory, setSelectedCategory] = useState(null);
+
+    // Filter products based on selected category
+    const filteredProducts = selectedCategory
+        ? products.filter(product => product.category === selectedCategory)
+        : products;
 
 
     return (
@@ -71,24 +80,23 @@ const Products = () => {
                     </div>
                 </div>
                 <div className='flex flex-col lg:w-[50rem] lg:mx-auto w-auto mx-2'>
-                    <div className='mt-[2rem]  flex flex-col gap-y-[0.2rem] text-start'
-                    >
+                    <div className='mt-[2rem]  flex flex-col gap-y-[0.2rem] text-start'>
                         <h1 className='text-orange-800 underline hover:decoration-4 cursor-pointer'>Products</h1>
                         <ul className='list-none flex lg:gap-x-[1rem] filter-products'>
-                            <li className='text-orange-600 p-2 hover:underline cursor-pointer'>Man's Wear</li>
-                            <li className='text-orange-600 p-2 hover:underline cursor-pointer'>Women's Wear</li>
-                            <li className='text-orange-600 p-2 hover:underline cursor-pointer'>Watches</li>
-                            <li className='text-orange-600 p-2 hover:underline cursor-pointer'>Jewelery</li>
+                            <li className='text-orange-600 p-2 hover:underline cursor-pointer' onClick={() => setSelectedCategory("men's clothing")}>Man's Wear</li>
+                            <li className='text-orange-600 p-2 hover:underline cursor-pointer' onClick={() => setSelectedCategory("women's clothing")}>Women's Wear</li>
+                            <li className='text-orange-600 p-2 hover:underline cursor-pointer' onClick={() => setSelectedCategory("jewelery")}>Jewelery</li>
+                            <li className='text-orange-600 p-2 hover:underline cursor-pointer' onClick={() => setSelectedCategory("electronics")}>electronics</li>
                         </ul>
                     </div>
                     <div>
                         {loading ? (
                             <Box sx={{ display: 'flex', justifyContent: "center", alignItems: 'center', height: '100vh' }}>
-                                <CircularProgress variant="determinate" value={progress}/>
+                                <CircularProgress variant="determinate" value={progress} />
                             </Box>
                         ) : (
                             <div className='lg:w-[50rem] text-start lg:my-[2rem] lg:mx-auto md:mx-auto gap-y-[2rem] md:gap-[2rem] justify-center mt-[2rem] grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-[2rem] lg:gap-x-[1rem]'>
-                                {products.map(product => (
+                                {filteredProducts.map(product => (
                                     <Card key={product.id} sx={{ maxWidth: 345 }}>
                                         <CardMedia
                                             sx={{ height: 140 }}
