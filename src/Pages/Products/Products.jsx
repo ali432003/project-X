@@ -24,20 +24,20 @@ const Products = () => {
             fetch('https://fakestoreapi.com/products')
                 .then(res => res.json())
                 .then(json => {
-                    // Set products state after fetching data
+                    
                     setProducts(json);
-                    setLoading(false); // Set loading to false once data is fetched
+                    setLoading(false); 
                 })
                 .catch(error => {
                     console.error('Error fetching data:', error);
-                    setLoading(false); // Set loading to false in case of an error
+                    setLoading(false); 
                 });
-        }, 4000); // 3000 milliseconds = 3 seconds
+        }, 8000); 
 
-        // Clear the timeout to prevent memory leaks
+        
         return () => clearTimeout(delay);
     }, []);
-    const [progress, setProgress] = React.useState(0);
+    const [progress, setProgress] = useState(0);
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -84,7 +84,7 @@ const Products = () => {
                     <div>
                         {loading ? (
                             <Box sx={{ display: 'flex', justifyContent: "center", alignItems: 'center', height: '100vh' }}>
-                                <CircularProgress />
+                                <CircularProgress variant="determinate" value={progress}/>
                             </Box>
                         ) : (
                             <div className='lg:w-[50rem] text-start lg:my-[2rem] lg:mx-auto md:mx-auto gap-y-[2rem] md:gap-[2rem] justify-center mt-[2rem] grid lg:grid-cols-3 md:grid-cols-2 lg:gap-y-[2rem] lg:gap-x-[1rem]'>
